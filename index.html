@@ -49,17 +49,19 @@
         <div
           class="mx-auto p-6 text-neutral-100 w-full h-full bg-neutral-900 rounded-lg"
         >
-          <figure class="overflow-hidden rounded-full w-24 h-24 mx-auto">
+          <figure
+            class="overflow-hidden rounded-full w-24 h-24 mx-auto md:w-40 md:h-40"
+          >
             <img src="" alt="" class="block w-full object-cover" id="cardImg" />
           </figure>
           <a
-            class="text-center text-2xl mt-2 block"
+            class="text-center text-2xl mt-2 block relative w-fit mx-auto hover:text-orange-400 transition-colors duration-300 after:content-[''] after:block after:absolute after:-left-[5%] after:rounded-lg after:-bottom-1 after:h-1 after:w-[110%] after:bg-gradient-to-r after:from-orange-400 after:to-red-500"
             id="cardUserName"
             target="_blank"
             referrerpolicy="no-referrer"
           ></a>
           <q
-            class="text-center block not-italic text-neutral-400"
+            class="text-center block not-italic text-neutral-400 md:mt-3"
             id="cardUserBio"
           ></q>
           <p
@@ -75,7 +77,7 @@
             >
               Followers:
               <a
-                class="text-neutral-100 font-bold not-italic"
+                class="text-neutral-100 font-bold not-italic border-b border-orange-400 transition-colors duration-300 hover:text-orange-400"
                 target="_blank"
               ></a>
             </p>
@@ -85,7 +87,7 @@
             >
               Following:
               <a
-                class="text-neutral-100 font-bold not-italic"
+                class="text-neutral-100 font-bold not-italic border-b border-orange-400 transition-colors duration-300 hover:text-orange-400"
                 target="_blank"
               ></a>
             </p>
@@ -95,7 +97,7 @@
             >
               Repositories:
               <a
-                class="text-neutral-100 font-bold not-italic"
+                class="text-neutral-100 font-bold not-italic border-b border-orange-400 transition-colors duration-300 hover:text-orange-400"
                 target="_blank"
               ></a>
             </p>
