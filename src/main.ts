@@ -54,7 +54,7 @@ submitButton.addEventListener("click", async (e: MouseEvent) => {
   const cardContainer = document.querySelector(
     "section#cardContainer"
   ) as HTMLElement; // there is no HTMLSectionElement, bummer :(
-  cardContainer.classList.remove("hidden");
+  cardContainer.classList.replace("opacity-0", "opacity-100");
 });
 
 async function fetchUser(name: string): Promise<GitHubUser | null> {
