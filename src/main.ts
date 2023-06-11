@@ -90,16 +90,18 @@ function updateCard(user: GitHubUser) {
   const cardFollowers = document.querySelector(
     "p#cardFollowers"
   ) as HTMLParagraphElement;
-  const cardFollowersSpan = cardFollowers.firstElementChild as HTMLSpanElement;
+  const cardFollowersLink =
+    cardFollowers.firstElementChild as HTMLAnchorElement;
   const cardFollowing = document.querySelector(
     "p#cardFollowing"
   ) as HTMLParagraphElement;
-  const cardFollowingSpan = cardFollowing.firstElementChild as HTMLSpanElement;
+  const cardFollowingLink =
+    cardFollowing.firstElementChild as HTMLAnchorElement;
   const cardRepositories = document.querySelector(
     "p#cardRepositories"
   ) as HTMLParagraphElement;
-  const cardRepositoriesSpan =
-    cardRepositories.firstElementChild as HTMLSpanElement;
+  const cardRepositoriesLink =
+    cardRepositories.firstElementChild as HTMLAnchorElement;
 
   cardImage.src = user.avatar_url ?? null;
   cardImage.alt = `Profile photo of ${user.login}`;
@@ -110,9 +112,12 @@ function updateCard(user: GitHubUser) {
   cardUserBio.cite = user.name;
   cardUserLocation.innerHTML = `from <span class="text-neutral-100">${user.location}</span>`;
 
-  cardFollowersSpan.innerText = user.followers?.toString() ?? "0";
-  cardFollowingSpan.innerText = user.following?.toString() ?? "0";
-  cardRepositoriesSpan.innerText = user.public_repos?.toString() ?? "0";
+  cardFollowersLink.innerText = user.followers?.toString() ?? "0";
+  cardFollowersLink.href = user.followers_url;
+  cardFollowingLink.innerText = user.following?.toString() ?? "0";
+  cardFollowingLink.href = user.following_url;
+  cardRepositoriesLink.innerText = user.public_repos?.toString() ?? "0";
+  cardRepositoriesLink.href = user.repos_url;
   cardFollowers.classList.remove("hidden");
   cardFollowing.classList.remove("hidden");
   cardRepositories.classList.remove("hidden");
