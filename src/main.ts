@@ -129,11 +129,3 @@ function updateCard(user: GitHubUser) {
     cardUserBio.classList.remove("hidden");
   }
 }
-
-const user: GitHubUser | null = await fetchUser("brkyurun");
-
-if (typeof user === null) {
-  throw new Error("User not found.");
-}
-
-// updateCard(user as GitHubUser);
