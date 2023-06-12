@@ -16,12 +16,15 @@ submitButton.addEventListener("click", async (e: MouseEvent) => {
 
   if (user === undefined) {
     user = await fetchUser(usernameInput.value);
-    cache.setValue(user?.login as string, user as GitHubUser);
   }
 
   // the fetchUser function returns null if no user is found
   if (user === null) {
     throw new Error("User not found.");
+  }
+
+  if (user.login !== undefined) {
+    cache.setValue(user?.login as string, user as GitHubUser);
   }
 
   updateCard(user as GitHubUser);
