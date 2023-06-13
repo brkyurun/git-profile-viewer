@@ -37,7 +37,7 @@ submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
 
 async function fetchUser(name: string): Promise<GitHubUser | null> {
   if (!name) {
-    throw new Error("Please provide an existing GitHub username.");
+    return Promise.reject("Please provide a valid GitHub username.");
   }
 
   try {
@@ -49,8 +49,7 @@ async function fetchUser(name: string): Promise<GitHubUser | null> {
 
     return user.json();
   } catch (error: unknown) {
-    console.log(error);
-    return null;
+    return Promise.reject(`An error has occurred: ${error}`);
   }
 }
 
