@@ -16,7 +16,11 @@ submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
   let user: GitHubUser | undefined | null = cache.getValue(usernameInput.value);
 
   if (user === undefined) {
-    user = await fetchUser(usernameInput.value);
+    try {
+      user = await fetchUser(usernameInput.value);
+    } catch (error) {
+      return Promise.reject(`Failed to fetch the user: ${error}`);
+    }
   }
 
   // the fetchUser function returns null if no user is found
