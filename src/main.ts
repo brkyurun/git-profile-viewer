@@ -23,10 +23,10 @@ submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
   if (user === null) return;
 
   if (user.login !== undefined) {
-    cache.setValue(user?.login as string, user as GitHubUser);
+    cache.setValue(user?.login, user);
   }
 
-  updateCard(user as GitHubUser);
+  updateCard(user);
   const cardContainer = document.querySelector(
     "section#cardContainer"
   ) as HTMLElement; // there is no HTMLSectionElement, bummer :(
