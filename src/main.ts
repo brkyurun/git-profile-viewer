@@ -31,9 +31,7 @@ submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
   }
 
   updateCard(user);
-  const cardContainer = document.querySelector(
-    "section#cardContainer"
-  ) as HTMLElement; // there is no HTMLSectionElement, bummer :(
+  const cardContainer = document.getElementById("cardContainer") as HTMLElement; // there is no HTMLSectionElement, bummer :(
   cardContainer.classList.replace("opacity-0", "opacity-100");
 });
 
@@ -56,28 +54,28 @@ async function fetchUser(name: string): Promise<GitHubUser | null> {
 }
 
 function updateCard(user: GitHubUser): void {
-  const cardImage = document.querySelector("img#cardImg") as HTMLImageElement;
-  const cardUserName = document.querySelector(
-    "a#cardUserName"
+  const cardImage = document.getElementById("cardImg") as HTMLImageElement;
+  const cardUserName = document.getElementById(
+    "cardUserName"
   ) as HTMLAnchorElement;
-  const cardUserBio = document.querySelector(
-    "q#cardUserBio"
+  const cardUserBio = document.getElementById(
+    "cardUserBio"
   ) as HTMLQuoteElement;
-  const cardUserLocation = document.querySelector(
-    "p#cardUserLocation"
+  const cardUserLocation = document.getElementById(
+    "cardUserLocation"
   ) as HTMLParagraphElement;
-  const cardFollowers = document.querySelector(
-    "p#cardFollowers"
+  const cardFollowers = document.getElementById(
+    "cardFollowers"
   ) as HTMLParagraphElement;
   const cardFollowersLink =
     cardFollowers.firstElementChild as HTMLAnchorElement;
-  const cardFollowing = document.querySelector(
-    "p#cardFollowing"
+  const cardFollowing = document.getElementById(
+    "cardFollowing"
   ) as HTMLParagraphElement;
   const cardFollowingLink =
     cardFollowing.firstElementChild as HTMLAnchorElement;
-  const cardRepositories = document.querySelector(
-    "p#cardRepositories"
+  const cardRepositories = document.getElementById(
+    "cardRepositories"
   ) as HTMLParagraphElement;
   const cardRepositoriesLink =
     cardRepositories.firstElementChild as HTMLAnchorElement;
@@ -101,7 +99,7 @@ function updateCard(user: GitHubUser): void {
   cardFollowing.classList.remove("hidden");
   cardRepositories.classList.remove("hidden");
 
-  // remove <q> visibility and restore if next user has a bio
+  // toggle <q> visibility and restore if next user has a bio
   if (user.bio === null) {
     cardUserBio.classList.add("hidden");
   } else {
