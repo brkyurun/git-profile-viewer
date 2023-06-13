@@ -5,7 +5,7 @@ import { GitHubUser } from "./types";
 const cache = new QueryCache<string, GitHubUser>();
 
 const usernameInput = document.querySelector(
-  'input[name="github-name"]'
+  'input[name="githubName"]'
 ) as HTMLInputElement;
 const submitButton = document.querySelector(
   'button[type="submit"]'
