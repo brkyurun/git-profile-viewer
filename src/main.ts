@@ -10,7 +10,8 @@ const usernameInput = document.querySelector(
 const submitButton = document.querySelector(
   'button[type="submit"]'
 ) as HTMLButtonElement;
-submitButton.addEventListener("click", async (e: MouseEvent) => {
+
+submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
   e.preventDefault();
   let user: GitHubUser | undefined | null = cache.getValue(usernameInput.value);
 
@@ -53,7 +54,7 @@ async function fetchUser(name: string): Promise<GitHubUser | null> {
   }
 }
 
-function updateCard(user: GitHubUser) {
+function updateCard(user: GitHubUser): void {
   const cardImage = document.querySelector("img#cardImg") as HTMLImageElement;
   const cardUserName = document.querySelector(
     "a#cardUserName"
