@@ -20,9 +20,7 @@ submitButton.addEventListener("click", async (e: MouseEvent): Promise<void> => {
   }
 
   // the fetchUser function returns null if no user is found
-  if (user === null) {
-    throw new Error("User not found.");
-  }
+  if (user === null) return;
 
   if (user.login !== undefined) {
     cache.setValue(user?.login as string, user as GitHubUser);
